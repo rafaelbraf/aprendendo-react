@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { Route } from 'react-router-dom';
 import ListaContatos from './ListaContatos';
 import FormContato from './FormContato';
 
@@ -43,10 +44,19 @@ class App extends Component {
       <div>
 
         <h1>Contatos</h1>
-        <FormContato onCreateContato={this.createContato} />
-        <ListaContatos 
-          contatos={this.state.contatos}
-          onDeleteContato={this.removerContato}/>
+
+        <Route exact path='/' render={() => (
+          <ListaContatos 
+            contatos={this.state.contatos}
+            onDeleteContato={this.removerContato}/>
+        )} />
+
+        <Route path='/create' render={({history}) => (
+          <FormContato onCreateContato={(contato) => {
+            this.createContato(contato)
+            history.push('/')
+          }} />
+        )} />
 
       </div>
     );
