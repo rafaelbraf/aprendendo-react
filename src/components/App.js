@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import ListaContatos from './ListaContatos';
+import FormContato from './FormContato';
 
 class App extends Component {
   
@@ -36,6 +37,7 @@ class App extends Component {
       <div>
 
         <h1>Contatos</h1>
+        <FormContato />
         <ListaContatos 
           contatos={this.state.contatos}
           onDeleteContato={this.removerContato}/>
