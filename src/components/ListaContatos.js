@@ -12,7 +12,7 @@ class ListaContatos extends Component {
                         <li key={contato.id}>
                             <h4>{contato.nome}</h4>
                             <p>{contato.instagram}</p>
-                            <button>Excluir</button>
+                            <button onClick={() => this.props.onDeleteContato(contato)}>Excluir</button>
                         </li>
                     ))}
                 </ul>

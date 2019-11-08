@@ -23,12 +23,22 @@ class App extends Component {
     ]
   }
 
+  removerContato = (contato) => {
+    this.setState((currentState) => ({
+      contatos: currentState.contatos.filter((c) => {
+        return c.id !== contato.id
+      })
+    }))
+  }
+
   render() {
     return(
       <div>
 
         <h1>Contatos</h1>
-        <ListaContatos contatos={this.state.contatos}/>
+        <ListaContatos 
+          contatos={this.state.contatos}
+          onDeleteContato={this.removerContato}/>
 
       </div>
     );
