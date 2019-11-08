@@ -15,7 +15,13 @@ class FormContato extends Component {
     handleSubmit = (e) => {
         e.preventDefault()
         const {nome, instagram} = this.state
-        console.log('Novo contato: ', {nome, instagram})
+        this.props.onCreateContato({
+            nome, instagram, id: generateUID()
+        })
+        this.setState({
+            nome: "",
+            instagram: ""
+        })
     }
 
     render() {
